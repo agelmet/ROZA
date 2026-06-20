@@ -13,16 +13,16 @@
     --psych-cream: #F7F5F0; 
     --psych-charcoal: #2C3338;
     --psych-sage: #7F8C85;
-    --psych-teal: #006d77;
+    --psych-teal: #006d77; /* Petrol color */
     --psych-glass: rgba(255, 255, 255, 0.65);
     --psych-blur: blur(20px);
-      
+     
     --font-heading: 'Playfair Display', serif;
     --font-body: 'Manrope', sans-serif;
-      
+     
     --section-spacing: 80px;
     --border-radius-soft: 24px;
-      
+     
     background-color: var(--psych-cream);
     color: var(--psych-charcoal);
     font-family: var(--font-body);
@@ -72,7 +72,7 @@
 .hero-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
 
 .hero-logo {
-    max-width: 280px; /* Increased size */
+    max-width: 280px;
     margin-bottom: 40px; display: block; border-radius: 50%;
     background-color: var(--psych-cream); 
     box-shadow: 0 0 30px rgba(247, 245, 240, 0.8), 0 0 60px rgba(188, 163, 138, 0.3);
@@ -86,7 +86,7 @@
     font-style: italic;
     font-size: clamp(2rem, 3.5vw, 3.2rem);
     line-height: 1.35;
-    color: var(--psych-charcoal);
+    color: var(--psych-teal); /* CHANGED TO PETROL COLOR */
     margin-bottom: 25px;
 }
 .hero-quote-author {
@@ -120,6 +120,9 @@
 .service-card { padding: 50px; height: 100%; }
 .service-card:hover { transform: translateY(-10px); background: white; border-color: rgba(188, 163, 138, 0.3); }
 .service-icon { font-size: 1.8rem; color: var(--psych-gold); margin-bottom: 24px; font-family: var(--font-heading); font-style: italic; }
+
+/* SERVICE TITLES GOLD */
+.service-card h3 { font-size: 1.5rem; margin-bottom: 18px; color: var(--psych-gold); }
 
 /* OFFICE IMAGES */
 .psych-office-section { padding: var(--section-spacing) 0; position: relative; }
@@ -177,7 +180,7 @@
 
     <section class="psych-hero-section" id="hero">
         <div class="neuro-orb" style="background: var(--psych-gold); width: 50vw; height: 50vw; top: -10%; left: -10%; opacity: 0.15;"></div>
-         
+        
         <svg class="logo-branch" width="400" height="600" viewBox="0 0 200 300" style="top: -5%; right: -5%; transform: rotate(-10deg);">
             <path class="branch-stem" d="M100,300 Q120,200 80,150 T100,0" stroke="none" stroke-width="0" fill="url(#branchGradient)"/>
             <path class="branch-leaf" d="M100,0 C90,10 80,25 80,40 C80,55 90,65 100,70 C110,65 120,55 120,40 C120,25 110,10 100,0 Z" />
@@ -190,14 +193,14 @@
             <div class="hero-grid">
                 <div class="hero-content">
                     <img src="https://assets.cdn.filesafe.space/61icdoMiJ2pHklO6mmKW/media/696f6902193b562a99706560.jpg" alt="Logo" class="hero-logo fade-up-trigger">
-                     
+                    
                     <div class="hero-quote-wrapper fade-up-trigger">
-                        <h1 class="hero-quote-text" style="color: #004D55;">
+                        <h1 class="hero-quote-text">
                             "Τα αισθήματα που δεν εκφράζονται δεν πεθαίνουν ποτέ. Θάβονται ζωντανά και θα τα ξανά βρούμε μπροστά μας..."
                         </h1>
                         <span class="hero-quote-author">Sigmund Freud</span>
                     </div>
-                     
+                    
                     <div class="fade-up-trigger">
                         <a href="https://www.doctoranytime.gr/d/Psychologos/xaroutiounian-roza?autobook=1" target="_blank" class="psych-btn-magnetic">
                             Προγραμματίστε Συνεδρία
@@ -215,7 +218,7 @@
 
     <section class="psych-bio-section" id="bio">
         <div class="neuro-orb" style="background: var(--psych-sage); width: 40vw; height: 40vw; bottom: 0; right: -10%; opacity: 0.1;"></div>
-         
+        
         <div class="psych-container">
             <div class="bio-grid">
                 <div class="bio-portrait-container fade-up-trigger">
@@ -223,20 +226,20 @@
                 </div>
                 <div class="bio-content fade-up-trigger">
                     <h2>Καλώς ήρθατε!</h2>
-                     
+                    
                     <p style="font-size: 1.15rem; color: var(--psych-charcoal); font-weight: 500; margin-bottom: 20px;">
                         Είμαι η Ρόζα Χαρουτιουνιάν και διατηρώ το γραφείο μου στο κέντρο του Πειραιά. Στο θεραπευτικό μου έργο ασχολούμαι με πλήθος περιστατικών, έχοντας ως επίκεντρο την ενσυναίσθηση.
                     </p>
-                     
+                    
                     <p style="font-size: 1rem; color: var(--psych-sage); line-height: 1.8; margin-bottom: 25px;">
-                        Στο ιδιωτικό μου γραφείο στον Πειραιά, έχω δημιουργήσει έναν χώρο αποδοχής και ασφάλειας. Με ακαδημαϊκό υπόβαθρο από το University of East London και εξειδίκευση στη Συνθετική Ψυχοθεραπεία (Ε.Ψ.Υ.Θ.Ε.), την Ιατρική Ψυχολογία (ΕΚΠΑ) και συμβουλευτική θεραπεία ζεύγους και οικογένειας (ΕΚΠΑ), προσφέρω ολιστική υποστήριξη, αναγνωρίζοντας τη σύνδεση ψυχής και σώματος.
+                        Στο ιδιωτικό μου γραφείο στον Πειραιά, έχω διαμορφώσει έναν χώρο ασφάλειας και αποδοχής. Με ακαδημαϊκό υπόβαθρο από το University of East London, κάτοχος άδειας άσκησης επαγγέλματος ψυχολόγου, και εξειδίκευση στη Συνθετική Ψυχοθεραπεία (Ε.Ψ.Υ.Θ.Ε.). Στο πλαίσιο της διαρκούς επαγγελματικής εξέλιξης, έχω εκπαιδευτεί στην Ιατρική Ψυχολογία, καθώς και στη συμβουλευτική και θεραπεία ζεύγους και οικογένειας στο ΕΚΠΑ, προσφέροντας ολιστική ψυχοθεραπευτική υποστήριξη με σεβασμό στη σύνδεση ψυχής και σώματος.
                     </p>
 
                     <div class="credential-tags">
                         <span class="cred-tag">BSc (Hons) Psychology</span>
                         <span class="cred-tag">Συνθετική Ψυχοθεραπεία</span>
                         <span class="cred-tag">Ιατρική Ψυχολογία (ΕΚΠΑ)</span>
-                        <span class="cred-tag">Συμβουλευτική θεραπεία ζεύγους και οικογένειας (ΕΚΠΑ)</span>
+                        <span class="cred-tag">Συμβουλευτική θεραπεία ζεύγους και οικογένειας</span>
                     </div>
                 </div>
             </div>
@@ -252,16 +255,16 @@
 
         <div class="psych-container">
             <div class="fade-up-trigger" style="text-align: center; max-width: 850px; margin: 0 auto 60px;">
-                <h2>ΤΟ ΜΟΝΟΠΑΤΙ ΨΥΧΟΘΕΡΑΠΕΙΑΣ</h2>
+                <h2>ΤΟ ΜΟΝΟΠΑΤΙ ΤΗΣ ΨΥΧΟΘΕΡΑΠΕΙΑΣ</h2>
                 <p style="color: var(--psych-sage); font-size: 1.1rem;">
                     Η Συνθετική Ψυχοθεραπεία είναι μια ευέλικτη και ολιστική προσέγγιση που ενσωματώνει τεχνικές και θεωρίες από διαφορετικά ψυχοθεραπευτικά μοντέλα. Στόχος της είναι να αντιμετωπίζει τα ψυχολογικά ζητήματα του κάθε ατόμου με τρόπο προσαρμοσμένο στις προσωπικές του ανάγκες, αξιοποιώντας ποικίλες μεθόδους για την καλύτερη κατανόηση και υποστήριξη του θεραπευόμενου. Εστιάζει στη συνολική λειτουργικότητα του ατόμου, καλύπτοντας τη νοητική, συναισθηματική και σωματική διάσταση.
                 </p>
             </div>
 
             <div class="services-grid">
-                <div class="psych-glass-card service-card fade-up-trigger">
-                    <div class="service-icon">i</div>
-                    <h3 style="color: var(--psych-gold);">Γνωσιακή - Συμπεριφορική (CBT)</h3>
+                <div class="psych-glass-card service-card fade-up-trigger" style="background-color: #F4F3F1; border: 1px solid #A38E73;">
+                    <div class="service-icon">i.</div>
+                    <h3>Γνωσιακή - Συμπεριφορική Ψυχοθεραπεία (CBT)</h3>
                     <p style="font-size: 0.95rem;">Η Συμπεριφορική Θεραπεία αποτελεί επιστημονικά τεκμηριωμένη ψυχοθεραπευτική προσέγγιση, η οποία βασίζεται στις αρχές της μάθησης και της συμπεριφοράς. Εστιάζει στην παρατήρηση, ανάλυση και τροποποίηση των αυτόματων αρνητικών σκέψεων και δυσλειτουργικών συμπεριφορικών προτύπων. Δίνει έμφαση στο παρόν και στη λειτουργική σχέση μεταξύ ερεθισμάτων, σκέψεων, συναισθημάτων και συμπεριφοράς. Η CBT στοχεύει στη συστηματική αναδόμηση των γνωστικών και συμπεριφορικών μοτίβων, προάγοντας την προσαρμοστική λειτουργικότητα και μειώνοντας την ψυχολογική δυσφορία.<br><br>
                     <strong>Που εστιάζει η CBT:</strong><br>
                     • Άγχος και έντονη ανησυχία στην καθημερινότητα<br>
@@ -272,9 +275,9 @@
                     • Αυτοεκτίμηση και αυτοπεποίθηση: Εντοπίζονται περιοριστικά μοτίβα σκέψης.</p>
                 </div>
 
-                <div class="psych-glass-card service-card fade-up-trigger">
-                    <div class="service-icon">ii</div>
-                    <h3 style="color: var(--psych-gold);">Ψυχοδυναμική Προσέγγιση</h3>
+                <div class="psych-glass-card service-card fade-up-trigger" style="background-color: #F4F3F1; border: 1px solid #A38E73;">
+                    <div class="service-icon">ii.</div>
+                    <h3>Ψυχοδυναμική Προσέγγιση</h3>
                     <p style="font-size: 0.95rem;">Η ψυχοδυναμική προσέγγιση βασίζεται στις θεωρίες του Sigmund Freud, εξετάζοντας τις αλληλεπιδράσεις μεταξύ συνειδητού και ασυνείδητου. Εστιάζει στη δομή της προσωπικότητας, στις εσωτερικές συγκρούσεις και στις αμυντικές διεργασίες που οργανώνουν τη ψυχική λειτουργία. Ιδιαίτερη προσοχή δίνεται στις πρώιμες εμπειρίες της παιδικής ηλικίας, οι οποίες διαμορφώνουν βασικά ψυχικά σχήματα και επαναλαμβανόμενα διαπροσωπικά μοτίβα στην ενήλικη ζωή.<br><br>
                     • <strong>Τραύματα:</strong> Διερεύνηση πρώιμων εμπειριών.<br>
                     • <strong>Ψυχικές Άμυνες:</strong> Ανάλυση μηχανισμών προστασίας.<br>
@@ -283,9 +286,9 @@
                     • <strong>Αποδοχή:</strong> Σχέση αυτοαποδοχής και περιβάλλοντος.</p>
                 </div>
 
-                <div class="psych-glass-card service-card fade-up-trigger">
-                    <div class="service-icon">iii</div>
-                    <h3 style="color: var(--psych-gold);">Συστημική Ψυχοθεραπεία</h3>
+                <div class="psych-glass-card service-card fade-up-trigger" style="background-color: #F4F3F1; border: 1px solid #A38E73;">
+                    <div class="service-icon">iii.</div>
+                    <h3>Συστημική Ψυχοθεραπεία</h3>
                     <p style="font-size: 0.95rem;">Η συστημική ψυχοθεραπεία είναι μια προσέγγιση που εστιάζει στις αλληλεπιδράσεις και τις δυναμικές μέσα σε συστήματα, όπως η οικογένεια, οι στενές σχέσεις ή ομάδες κοινωνικής σημασίας. Η θεωρία της στηρίζεται στην αντίληψη ότι τα ψυχικά προβλήματα του ατόμου δεν μπορούν να κατανοηθούν απομονωμένα, αλλά ως αποτέλεσμα των σχέσεων, των ρόλων και των επικοινωνιακών μοτίβων που λειτουργούν στο πλαίσιο του συστήματος.<br><br>
                     • <strong>Προσωπικές σχέσεις:</strong> Μοτίβα επικοινωνίας με συντρόφους/φίλους.<br>
                     • <strong>Θέματα σχέσεων:</strong> Ανάλυση δυσλειτουργικών δυναμικών.<br>
@@ -293,16 +296,15 @@
                     • <strong>Coming out:</strong> Υποστήριξη στην έκφραση προσωπικών ταυτοτήτων.</p>
                 </div>
 
-                <div class="psych-glass-card service-card fade-up-trigger" style="background: rgba(188, 163, 138, 0.05);">
-                    <div class="service-icon"></div>
-                    <h3 style="color: var(--psych-gold);">Παροχές & Προσβασιμότητα</h3>
+                <div class="psych-glass-card service-card fade-up-trigger" style="background: rgba(188, 163, 138, 0.05); border: 1px solid #A38E73;">
+                    <h3 style="color: var(--psych-gold); margin-top: 65px;">Παροχές & Προσβασιμότητα</h3>
                     <p style="color: var(--psych-charcoal);">
                         ✓ <strong>Online συνεδρίες:</strong> Δυνατότητα ψυχοθεραπείας από οπουδήποτε.<br>
                         ✓ <strong>Πρόσβαση:</strong> Εύκολα προσβάσιμο με όλα τα μέσα μαζικής μεταφοράς.<br>
                         ✓ <strong>Πρόσβαση για ΑΜΕΑ:</strong> Ο χώρος είναι πλήρως προσβάσιμος.<br>
-                        ✓ <strong>Υποστήριξη ΛΟΑΤΚΙ+:</strong> Προωθούμε την ένταξη και την αποδοχή.<br>
+                        ✓ <strong>Υποστήριξη ΛΟΑΤΚΙ+:</strong> Ένταξη και αποδοχή.<br>
                         ✓ <strong>Ειδικό κόστος:</strong> Μειωμένες τιμές για ανέργους και ΑΜΕΑ.<br>
-                        ✓ <strong>Pet friendly:</strong> Καλωσορίζουμε τα κατοικίδια.
+                        ✓ <strong>Pet friendly:</strong> Δυνατότητα παρουσίας ζώου συντροφιάς.
                     </p>
                 </div>
             </div>
@@ -318,10 +320,13 @@
         <div class="psych-container">
             <div style="text-align: center; margin-bottom: 40px;">
                 <h2>Ο Χώρος μας</h2>
+                <p style="color: var(--psych-sage); font-size: 1.1rem; max-width: 800px; margin: 0 auto;">
+                    Ένας χώρος σχεδιασμένος για απόλυτη ηρεμία και εχεμύθεια στην καρδιά του Πειραιά, εύκολα προσβάσιμος με όλα τα μέσα μεταφοράς.
+                </p>
             </div>
             <div class="office-grid-spread fade-up-trigger">
                 <div class="office-img-card"><img src="https://assets.cdn.filesafe.space/61icdoMiJ2pHklO6mmKW/media/696f82c00732b438d3b9c4c1.jpg" alt="Office 1"></div>
-                <div class="office-img-card"><img src="https://assets.cdn.filesafe.space/61icdoMiJ2pHklO6mmKW/media/697b0c15f215da75d66ff504.jpg" alt="Office 2"></div>
+                <div class="office-img-card"><img src="https://assets.cdn.filesafe.space/61icdoMiJ2pHklO6mmKW/media/696f6902193b5628e3706561.jpg" alt="Office 2"></div>
                 <div class="office-img-card"><img src="https://assets.cdn.filesafe.space/61icdoMiJ2pHklO6mmKW/media/696f6902193b5628e3706561.jpg" alt="Office 3"></div>
             </div>
         </div>
@@ -351,7 +356,7 @@
     <section class="psych-brand-section" style="background-image: url('https://assets.cdn.filesafe.space/61icdoMiJ2pHklO6mmKW/media/696f6902193b562a99706560.jpg');">
         <div class="brand-overlay"></div>
         <div class="brand-content fade-up-trigger">
-            <img src="https://assets.cdn.filesafe.space/61icdoMiJ2pHklO6mmKW/media/696f6902193b562a99706560.jpg" alt="Logo" style="max-width: 180px; border-radius: 50%; margin-bottom: 15px;">
+            <img src="https://assets.cdn.filesafe.space/61icdoMiJ2pHklO6mmKW/media/696f6902193b562a99706560.jpg" alt="Logo" style="max-width: 180px; border-radius: 50%; margin-bottom: 15px;"> <h2 style="margin:0;">Χαρουτιουνιάν Ρόζα</h2>
             <p style="font-style: italic; color: var(--psych-sage); margin-top: 10px;">
                 "Ο άνθρωπος βελτιώνεται καθώς ακολουθεί το δρόμο του. Αν περιμένει να βελτιωθεί προτού πάρει μια απόφαση, δεν θα προχωρήσει ποτέ.."<br>
                 <span style="font-style: normal; font-size: 0.9em; margin-top: 5px; display: inline-block;">Paulo Coelho</span>
@@ -366,9 +371,9 @@
                     <h4 style="color: var(--psych-gold);">ΕΠΙΚΟΙΝΩΝΙΑ</h4>
                     <a href="tel:6987853677" class="footer-link"><i class="fas fa-phone"></i> 698 785 3677</a>
                     <a href="mailto:r.aroutounian@gmail.com" class="footer-link"><i class="fas fa-envelope"></i> r.aroutounian@gmail.com</a>
-                    <div style="display: flex; gap: 15px; margin-top: 15px; flex-direction: column;">
-                         <a href="https://www.instagram.com/rozapsychologist/" target="_blank" class="footer-link"><i class="fab fa-instagram"></i> rozapsychologist</a>
-                         <a href="viber://chat?number=6987853677" class="footer-link"><i class="fab fa-viber"></i> Viber</a>
+                    <div style="display: flex; gap: 15px; margin-top: 15px;">
+                        <a href="https://www.instagram.com/rozapsychologist/" target="_blank" class="footer-link" style="font-size: 1.5rem;"><i class="fab fa-instagram"></i></a>
+                        <a href="viber://chat?number=6987853677" class="footer-link" style="font-size: 1.5rem;"><i class="fab fa-viber"></i></a>
                     </div>
                 </div>
                 <div>
@@ -447,7 +452,7 @@ document.addEventListener("DOMContentLoaded", function() {
             gsap.to(btn, { x: 0, y: 0, duration: 0.6, ease: 'elastic.out(1, 0.5)' });
         });
     });
-     
+    
     setTimeout(() => { ScrollTrigger.refresh(); }, 500);
 });
 </script>
