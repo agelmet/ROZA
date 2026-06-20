@@ -7,13 +7,37 @@
 <script src="https://unpkg.com/@studio-freight/lenis@1.0.39/dist/lenis.min.js"></script>
 
 <style>
+/* --- REQUIRED CSS FOR LENIS SMOOTH SCROLLING --- */
+html.lenis, html.lenis body {
+    height: auto;
+}
+.lenis.lenis-smooth {
+    scroll-behavior: auto !important;
+}
+.lenis.lenis-smooth [data-lenis-prevent] {
+    overscroll-behavior: contain;
+}
+.lenis.lenis-stopped {
+    overflow: hidden;
+}
+
+/* --- BASE BROWSER RESET --- */
+html, body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    min-height: 100vh;
+    background-color: #F7F5F0;
+    overflow-x: hidden;
+}
+
 /* --- SCOPED VARIABLES & RESET --- */
 #psych-master-wrapper {
     --psych-gold: #BCA38A; 
     --psych-cream: #F7F5F0; 
     --psych-charcoal: #2C3338;
     --psych-sage: #7F8C85;
-    --psych-teal: #006d77; /* Petrol color */
+    --psych-teal: #006d77;
     --psych-glass: rgba(255, 255, 255, 0.65);
     --psych-blur: blur(20px);
      
@@ -28,7 +52,8 @@
     font-family: var(--font-body);
     line-height: 1.7;
     width: 100%;
-    overflow-x: hidden; /* Changed from overflow: hidden to allow vertical scrolling */
+    /* overflow: clip prevents horizontal scrolling from absolute elements without breaking the scroll chain */
+    overflow: clip; 
     position: relative;
 }
 
@@ -86,7 +111,7 @@
     font-style: italic;
     font-size: clamp(2rem, 3.5vw, 3.2rem);
     line-height: 1.35;
-    color: var(--psych-teal); /* CHANGED TO PETROL COLOR */
+    color: var(--psych-teal);
     margin-bottom: 25px;
 }
 .hero-quote-author {
@@ -398,11 +423,12 @@ document.addEventListener("DOMContentLoaded", function() {
     // 1. Register GSAP plugins early
     gsap.registerPlugin(ScrollTrigger);
 
-    // 2. Initialize Smooth Scroll (Lenis)
+    // 2. Initialize Smooth Scroll (Lenis) with precise desktop configurations
     const lenis = new Lenis({
-        duration: 1.2,
-        easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
-        smooth: true
+        lerp: 0.1, // Modern standard instead of duration
+        smoothWheel: true, // Force mouse wheel smoothing
+        wheelMultiplier: 1, 
+        touchMultiplier: 2
     });
 
     // 3. Sync Lenis scroll with GSAP ScrollTrigger
@@ -457,6 +483,7 @@ document.addEventListener("DOMContentLoaded", function() {
         });
     });
     
+    // Refresh calculations once layout settles
     setTimeout(() => { ScrollTrigger.refresh(); }, 500);
 });
 </script>
