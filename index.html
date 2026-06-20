@@ -28,7 +28,7 @@
     font-family: var(--font-body);
     line-height: 1.7;
     width: 100%;
-    overflow: hidden;
+    overflow-x: hidden; /* Changed from overflow: hidden to allow vertical scrolling */
     position: relative;
 }
 
@@ -395,22 +395,27 @@
 <script>
 document.addEventListener("DOMContentLoaded", function() {
 
-    // 1. Initialize Smooth Scroll (Lenis)
+    // 1. Register GSAP plugins early
+    gsap.registerPlugin(ScrollTrigger);
+
+    // 2. Initialize Smooth Scroll (Lenis)
     const lenis = new Lenis({
         duration: 1.2,
         easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
         smooth: true
     });
-    function raf(time) {
-        lenis.raf(time);
-        requestAnimationFrame(raf);
-    }
-    requestAnimationFrame(raf);
 
-    // 2. Register GSAP
-    gsap.registerPlugin(ScrollTrigger);
+    // 3. Sync Lenis scroll with GSAP ScrollTrigger
+    lenis.on('scroll', ScrollTrigger.update);
 
-    // 3. Fade Up Animations
+    gsap.ticker.add((time) => {
+        lenis.raf(time * 1000);
+    });
+
+    // Prevent GSAP's lag smoothing from messing with Lenis's frame timing
+    gsap.ticker.lagSmoothing(0, 0);
+
+    // 4. Fade Up Animations
     const fadeElements = document.querySelectorAll(".fade-up-trigger");
     if(fadeElements.length > 0) {
         ScrollTrigger.batch(".fade-up-trigger", {
@@ -424,7 +429,7 @@ document.addEventListener("DOMContentLoaded", function() {
         });
     }
 
-    // 4. Parallax Image Effects
+    // 5. Parallax Image Effects
     const heroImg = document.querySelector(".hero-image");
     if(heroImg) {
         gsap.to(heroImg, {
@@ -432,14 +437,13 @@ document.addEventListener("DOMContentLoaded", function() {
             scrollTrigger: { trigger: "#hero", start: "top top", end: "bottom top", scrub: true }
         });
     }
-    // Note: Office parallax removed to allow for "Spread Out" grid layout request
 
-    // 5. Breathing Logo Branches Animation
+    // 6. Breathing Logo Branches Animation
     gsap.to('.logo-branch', {
         yPercent: 6, scale: 1.03, duration: 6, repeat: -1, yoyo: true, ease: "sine.inOut", stagger: { amount: 2, from: "random" }
     });
 
-    // 6. Magnetic Buttons
+    // 7. Magnetic Buttons
     const magneticButtons = document.querySelectorAll('.psych-btn-magnetic');
     magneticButtons.forEach(btn => {
         btn.addEventListener('mousemove', (e) => {
