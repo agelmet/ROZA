@@ -1,0 +1,472 @@
+<style id="psych-global-styles">
+  /* --- TYPOGRAPHY & IMPORTS --- */
+  @import url('https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400&family=Poppins:wght@500;600&display=swap');
+
+  /* --- VARIABLES & PALETTE --- */
+  :root {
+    /* Brand Palette */
+    --c-peach: #EED3C2;
+    --c-coral: #F28C5A;
+    --c-salmon: #E46A6A;
+    --c-berry: #B84A5A;
+    --c-turquoise: #6FAFB0;
+    --c-charcoal: #2B2B2B;
+    --c-offwhite: #F9F5F2;
+
+    /* Layout Logic */
+    --container-width: 1300px;
+  }
+
+  /* --- GLOBAL RESET --- */
+  #psych-wrapper {
+    width: 100%;
+    overflow-x: hidden;
+    font-family: 'Manrope', sans-serif;
+    color: var(--c-charcoal);
+    background: var(--c-offwhite);
+    line-height: 1.7;
+    font-size: 18px;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  #psych-wrapper * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+  #psych-wrapper h1, h2, h3, h4 {
+    font-family: 'Playfair Display', serif;
+    font-weight: 500;
+    line-height: 1.25;
+    color: var(--c-berry);
+  }
+
+  /* --- CONTAINER LOGIC --- */
+  .psych-container {
+    width: 100%;
+    max-width: var(--container-width);
+    margin: 0 auto !important;
+    padding-left: 30px !important;
+    padding-right: 30px !important;
+    position: relative;
+    z-index: 2;
+  }
+
+  .psych-grid-2 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: center;
+  }
+
+  /* --- PREMIUM MAGNETIC BUTTON STYLES --- */
+  .psych-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    padding: 18px 36px;
+    border-radius: 100px;
+    
+    /* Premium Gradient */
+    background: linear-gradient(135deg, var(--c-coral), var(--c-salmon));
+    color: #ffffff !important;
+    
+    /* Typography */
+    font-family: 'Poppins', sans-serif;
+    font-size: 16px;
+    font-weight: 600;
+    text-decoration: none;
+    letter-spacing: 0.5px;
+    text-transform: none;
+    
+    /* Effects */
+    box-shadow: 0 14px 30px rgba(228, 106, 106, 0.4);
+    border: 1px solid rgba(255,255,255,0.2);
+    
+    /* Physics Transitions */
+    transition: transform 0.3s cubic-bezier(0.2, 0.9, 0.25, 1), 
+                box-shadow 0.3s cubic-bezier(0.2, 0.9, 0.25, 1);
+    
+    cursor: pointer;
+    position: relative;
+    z-index: 10;
+    will-change: transform;
+  }
+
+  .psych-btn:hover {
+    box-shadow: 0 20px 50px rgba(228, 106, 106, 0.6);
+  }
+
+  .psych-btn .arrow {
+    display: inline-block;
+    transition: transform 0.3s cubic-bezier(0.2, 0.9, 0.25, 1);
+    font-size: 1.2em;
+    line-height: 1;
+  }
+
+  .psych-btn:hover .arrow {
+    transform: translateX(6px);
+  }
+
+  /* --- ANIMATIONS --- */
+  .reveal-up {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: opacity 0.8s ease, transform 1s cubic-bezier(0.2, 0.8, 0.2, 1);
+  }
+  
+  .reveal-up.active {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* --- RESPONSIVE --- */
+  @media (max-width: 1024px) {
+    .psych-grid-2 { grid-template-columns: 1fr; gap: 50px; }
+    #psych-wrapper h1 { font-size: 3rem !important; }
+  }
+  @media (max-width: 768px) {
+    .psych-container { padding-inline: 24px !important; }
+    #psych-hero .hero-inner { padding-left: 0 !important; }
+    #psych-hero { height: auto !important; min-height: 80vh; padding: 100px 0; }
+    
+    /* FIX: Smaller Heading on Mobile */
+    #psych-services h2 { font-size: 2.2rem !important; line-height: 1.2; }
+  }
+</style>
+
+<div id="psych-wrapper">
+
+  <section id="psych-hero" style="position: relative; height: 100vh; display: flex; align-items: center; overflow: hidden; background: var(--c-peach);">
+    
+    <div style="position: absolute; inset: 0; z-index: 0;">
+      <img src="https://assets.cdn.filesafe.space/61icdoMiJ2pHklO6mmKW/media/696f97fdeb392bfb31fafa21.jpg" alt="Therapy Session" style="width: 100%; height: 100%; object-fit: cover; object-position: top center;">
+      <div style="position: absolute; inset: 0; background: linear-gradient(90deg, #EED3C2 5%, rgba(238, 211, 194, 0.95) 45%, rgba(238, 211, 194, 0.1) 100%);"></div>
+    </div>
+
+    <div style="position: absolute; top: -10%; right: -5%; width: 600px; height: 600px; background: var(--c-turquoise); filter: blur(150px); opacity: 0.2; border-radius: 50%; pointer-events: none;"></div>
+
+    <div class="hero-container reveal-up" style="position: relative; z-index: 2; width: 100%; padding-left: 5vw;"> 
+      <div class="hero-inner" style="max-width: 750px;">
+        
+        <div style="margin-bottom: 24px;">
+            <span style="display: inline-block; padding: 10px 20px; background: rgba(255,255,255,0.4); border-radius: 50px; font-size: 0.8rem; letter-spacing: 2px; color: var(--c-charcoal); backdrop-filter: blur(10px); border: 1px solid rgba(255,255,255,0.3); font-weight: 600; text-transform: uppercase;">
+            ΨΥΧΟΛΟΓΟΣ - ΨΥΧΟΘΕΡΑΠΕΥΤΡΙΑ
+            </span>
+        </div>
+
+        <h1 style="font-size: 4.5rem; margin-bottom: 24px; color: var(--c-charcoal); line-height: 1.1;">
+          Βρείτε την εσωτερική σας <span style="color: var(--c-salmon); font-style: italic; font-family: 'Playfair Display', serif;">γαλήνη</span>.
+        </h1>
+
+        <p style="font-size: 1.3rem; color: #4a4a4a; margin-bottom: 48px; border-left: 3px solid var(--c-coral); padding-left: 28px; line-height: 1.7;">
+          Δεν χρειάζεται να παλεύετε μόνοι. Σε ένα ασφαλές περιβάλλον στον Βύρωνα, χτίζουμε μαζί τα μονοπάτια της ψυχικής ανθεκτικότητας και της αυτογνωσίας.
+        </p>
+        
+        <a href="https://www.doctoranytime.gr/en/d/psychologist-psychotherapist/talamagka-elpida" target="_blank" class="psych-btn magnetic-btn">
+          Κλείστε ραντεβού <span class="arrow">→</span>
+        </a>
+
+      </div>
+    </div>
+  </section>
+
+  <section id="psych-bio" style="padding: 120px 0 40px 0; background: var(--c-offwhite); position: relative;">
+    <div class="psych-container">
+      <div class="psych-grid-2">
+        
+        <div class="reveal-up" style="position: relative;">
+          <div style="position: absolute; inset: -15px; border: 1px solid var(--c-coral); border-radius: var(--radius-blob); transform: rotate(-5deg); z-index: 0; opacity: 0.3;"></div>
+          <div style="position: absolute; inset: 0; background: var(--c-peach); border-radius: var(--radius-blob); transform: rotate(10deg); z-index: 0; opacity: 0.5;"></div>
+          <img src="https://assets.cdn.filesafe.space/61icdoMiJ2pHklO6mmKW/media/696f97fdeb392b660efafa20.jpg" alt="Ελπίδα Ταλαμάγκα" style="width: 100%; border-radius: var(--radius-blob); position: relative; z-index: 1; box-shadow: 0 20px 40px rgba(0,0,0,0.05);">
+        </div>
+
+        <div class="reveal-up" style="transition-delay: 0.1s;">
+          <h2 style="font-size: 3.2rem; margin-bottom: 30px; color: var(--c-berry);">Ελπίδα Ταλαμάγκα</h2>
+          
+          <p style="font-size: 1.15rem; color: #333; margin-bottom: 24px;">
+            Καλώς ήρθατε. Είμαι Ψυχολόγος και Ψυχοθεραπεύτρια, αφοσιωμένη στη Γνωσιακή - Συμπεριφορική προσέγγιση (CBT). Η φιλοσοφία μου είναι απλή: κάθε άνθρωπος αξίζει να ακουστεί, να κατανοηθεί και να θεραπευτεί.
+          </p>
+          
+          <p>
+            Με σπουδές στο Εθνικό Καποδιστριακό Πανεπιστήμιο και εξειδίκευση στο Κέντρο Εφαρμοσμένης Ψυχοθεραπείας, διατηρώ το ιδιωτικό μου γραφείο στον Βύρωνα, προσφέροντας έναν χώρο απόλυτης αποδοχής.
+          </p>
+
+          <div style="margin-top: 40px; display: grid; grid-template-columns: 1fr 1px 1fr; align-items: center; gap: 20px;">
+            <div>
+              <span style="display: block; font-size: 2.2rem; font-family: 'Playfair Display', serif; color: var(--c-turquoise); line-height: 1;">CBT</span>
+              <span style="font-size: 0.75rem; text-transform: uppercase; letter-spacing: 2px; color: #888; display: block; margin-top: 8px;">Εξειδικευση</span>
+            </div>
+             <div style="width: 1px; height: 50px; background: #ddd;"></div>
+            <div>
+              <span style="display: block; font-size: 2.2rem; font-family: 'Playfair Display', serif; color: var(--c-turquoise); line-height: 1;">ΕΚΠΑ</span>
+              <span style="font-size: 0.75rem; text-transform: uppercase; letter-spacing: 2px; color: #888; display: block; margin-top: 8px;">Πτυχιο</span>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="psych-services" style="padding: 40px 0 120px 0; background: linear-gradient(to bottom, var(--c-offwhite) 0%, #ffffff 100%); position: relative; overflow: hidden;">
+    
+    <div style="position: absolute; top: 10%; left: -10%; width: 500px; height: 500px; background: var(--c-peach); filter: blur(100px); opacity: 0.3; border-radius: 50%;"></div>
+    <div style="position: absolute; bottom: 10%; right: -10%; width: 500px; height: 500px; background: var(--c-turquoise); filter: blur(120px); opacity: 0.15; border-radius: 50%;"></div>
+
+    <div class="psych-container">
+      <div style="text-align: center; max-width: 800px; margin: 0 auto 70px auto;" class="reveal-up">
+        <h2 style="font-size: 3.5rem; margin-bottom: 20px;">Θεραπευτικές Προσεγγίσεις</h2>
+        <p style="font-size: 1.2rem;">Μια ολιστική ματιά στην ψυχική υγεία. Εξατομικευμένη φροντίδα με επιστημονική εγκυρότητα.</p>
+      </div>
+
+      <style>
+        .services-grid-wrapper {
+          display: grid;
+          grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+          gap: 40px;
+          perspective: 1000px;
+          justify-content: center;
+        }
+        
+        .svc-card {
+          background: rgba(255, 255, 255, 0.7);
+          backdrop-filter: blur(10px);
+          -webkit-backdrop-filter: blur(10px);
+          border: 1px solid rgba(255, 255, 255, 0.6);
+          padding: 50px 40px;
+          border-radius: 24px;
+          transition: all 0.5s cubic-bezier(0.2, 0.8, 0.2, 1);
+          position: relative;
+          overflow: hidden;
+          display: flex;
+          flex-direction: column;
+          align-items: flex-start;
+        }
+        
+        .svc-card:hover {
+          transform: translateY(-12px);
+          box-shadow: 0 40px 80px rgba(43, 43, 43, 0.08);
+          background: rgba(255, 255, 255, 0.95);
+          border-color: var(--c-peach);
+        }
+
+        .svc-icon-box {
+          width: 70px;
+          height: 70px;
+          background: var(--c-offwhite);
+          border-radius: 20px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          margin-bottom: 30px;
+          transition: transform 0.4s ease, background 0.4s ease;
+        }
+
+        .svc-card:hover .svc-icon-box {
+          transform: rotate(5deg) scale(1.1);
+          background: var(--c-peach);
+        }
+
+        .svc-icon-svg {
+          width: 32px;
+          height: 32px;
+          fill: none;
+          stroke: var(--c-charcoal);
+          stroke-width: 1.5;
+          transition: stroke 0.4s ease;
+        }
+        
+        .svc-card:hover .svc-icon-svg { stroke: var(--c-berry); }
+
+        .svc-title {
+          font-family: 'Playfair Display', serif;
+          font-size: 1.6rem;
+          margin-bottom: 15px;
+          color: var(--c-charcoal);
+        }
+        
+        .svc-desc {
+          font-size: 1rem;
+          color: #666;
+          line-height: 1.6;
+          margin-bottom: 0;
+          flex-grow: 1;
+        }
+        /* No durations displayed */
+      </style>
+
+      <div class="services-grid-wrapper">
+        <div class="svc-card reveal-up">
+          <div class="svc-icon-box">
+            <svg class="svc-icon-svg" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9.813 15.904L9 18.75l-.813-2.846a4.5 4.5 0 00-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 003.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 003.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 00-3.09 3.09zM18.259 8.715L18 9.75l-.259-1.035a3.375 3.375 0 00-2.455-2.456L14.25 6l1.036-.259a3.375 3.375 0 002.455-2.456L18 2.25l.259 1.035a3.375 3.375 0 002.456 2.456L21.75 6l-1.035.259a3.375 3.375 0 00-2.456 2.456zM16.894 20.567L16.5 21.75l-.394-1.183a2.25 2.25 0 00-1.423-1.423L13.5 18.75l1.183-.394a2.25 2.25 0 001.423-1.423l.394-1.183.394 1.183a2.25 2.25 0 001.423 1.423l1.183.394-1.183.394a2.25 2.25 0 00-1.423 1.423z"></path></svg>
+          </div>
+          <h3 class="svc-title">Ατομική Ψυχοθεραπεία</h3>
+          <p class="svc-desc">Μια προσωπική διαδρομή αυτογνωσίας. Επεξεργασία τραυμάτων, συναισθηματική αποφόρτιση και ενδυνάμωση για ενήλικες που αναζητούν την αλλαγή.</p>
+        </div>
+
+        <div class="svc-card reveal-up" style="transition-delay: 0.1s;">
+          <div class="svc-icon-box">
+            <svg class="svc-icon-svg" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 3v2.25m6.364.386l-1.591 1.591M21 12h-2.25m-.386 6.364l-1.591-1.591M12 18.75V21m-4.773-4.227l-1.591 1.591M5.25 12H3m4.227-4.773L5.636 5.636M15.75 12a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0z"></path></svg>
+          </div>
+          <h3 class="svc-title">Διαχείριση Άγχους</h3>
+          <p class="svc-desc">Επιστημονικές τεχνικές για την αντιμετώπιση κρίσεων πανικού, γενικευμένου άγχους και φοβιών. Μάθετε να ελέγχετε το στρες πριν σας ελέγξει.</p>
+        </div>
+
+        <div class="svc-card reveal-up" style="transition-delay: 0.2s;">
+          <div class="svc-icon-box">
+             <svg class="svc-icon-svg" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12z"></path></svg>
+          </div>
+          <h3 class="svc-title">Συμβουλευτική Ζεύγους</h3>
+          <p class="svc-desc">Δημιουργούμε ένα ασφαλές πλαίσιο για να αποκατασταθεί η επικοινωνία, να επιλυθούν οι συγκρούσεις και να βρεθεί ξανά η συντροφικότητα.</p>
+        </div>
+
+        <div class="svc-card reveal-up" style="transition-delay: 0.3s;">
+          <div class="svc-icon-box">
+            <svg class="svc-icon-svg" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6A2.25 2.25 0 016 3.75h2.25A2.25 2.25 0 0110.5 6v2.25a2.25 2.25 0 01-2.25 2.25H6a2.25 2.25 0 01-2.25-2.25V6zM3.75 15.75A2.25 2.25 0 016 13.5h2.25a2.25 2.25 0 012.25 2.25V18a2.25 2.25 0 01-2.25 2.25H6A2.25 2.25 0 013.75 18v-2.25zM13.5 6a2.25 2.25 0 012.25-2.25H18A2.25 2.25 0 0120.25 6v2.25A2.25 2.25 0 0118 10.5h-2.25a2.25 2.25 0 01-2.25-2.25V6zM13.5 15.75a2.25 2.25 0 012.25-2.25H18a2.25 2.25 0 012.25 2.25V18A2.25 2.25 0 0118 20.25h-2.25A2.25 2.25 0 0113.5 18v-2.25z"></path></svg>
+          </div>
+          <h3 class="svc-title">CBT Ψυχοθεραπεία</h3>
+          <p class="svc-desc">Η Γνωσιακή - Συμπεριφορική θεραπεία εστιάζει στο "εδώ και τώρα". Αλλάζουμε τον τρόπο που σκέφτεστε για να αλλάξουμε τον τρόπο που νιώθετε.</p>
+        </div>
+
+        <div class="svc-card reveal-up" style="transition-delay: 0.4s;">
+          <div class="svc-icon-box">
+             <svg class="svc-icon-svg" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M15.75 10.5l4.72-4.72a.75.75 0 011.28.53v11.38a.75.75 0 01-1.28.53l-4.72-4.72M4.5 18.75h9a2.25 2.25 0 002.25-2.25v-9a2.25 2.25 0 00-2.25-2.25h-9A2.25 2.25 0 002.25 7.5v9a2.25 2.25 0 002.25 2.25z"></path></svg>
+          </div>
+          <h3 class="svc-title">Online Συνεδρίες</h3>
+          <p class="svc-desc">Η ψυχοθεραπεία προσαρμόζεται στη ζωή σας. Πλήρης υποστήριξη εξ αποστάσεως μέσω ασφαλούς πλατφόρμας βιντεοκλήσης.</p>
+        </div>
+
+        <div class="svc-card reveal-up" style="transition-delay: 0.5s;">
+          <div class="svc-icon-box">
+             <svg class="svc-icon-svg" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M20.25 8.511c.884.284 1.5 1.128 1.5 2.097v4.286c0 1.136-.847 2.1-1.98 2.193-.34.027-.68.052-1.02.072v3.091l-3-3c-1.354 0-2.694-.055-4.02-.163a2.115 2.115 0 01-.825-.242m9.345-8.334a2.126 2.126 0 00-.476-.095 48.64 48.64 0 00-8.048 0c-1.131.094-1.976 1.057-1.976 2.192v4.286c0 .837.46 1.58 1.155 1.951m9.345-8.334V6.637c0-1.621-1.152-3.026-2.76-3.235A48.455 48.455 0 0011.25 3c-2.115 0-4.198.137-6.24.402-1.608.209-2.76 1.614-2.76 3.235v6.226c0 1.621 1.152 3.026 2.76 3.235.577.075 1.157.14 1.74.194V21l4.155-4.155"></path></svg>
+          </div>
+          <h3 class="svc-title">Περιγεννητική Υγεία</h3>
+          <p class="svc-desc">Στήριξη για εγκύους και νέες μητέρες. Αντιμετώπιση επιλόχειας κατάθλιψης και προσαρμογή στη νέα πραγματικότητα της μητρότητας.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <section style="padding: 120px 0; background: var(--c-peach);">
+    <div class="psych-container">
+      <div class="psych-grid-2">
+        
+        <div class="reveal-up">
+          <img src="https://assets.cdn.filesafe.space/61icdoMiJ2pHklO6mmKW/media/696f97fd4a64648e3cc30670.jpg" alt="Το γραφείο" style="width: 100%; border-radius: 32px; box-shadow: 0 20px 60px -10px rgba(0,0,0,0.1);">
+          <div style="margin-top: 24px; text-align: center; font-style: italic; color: #7a5c5c; font-size: 1.1rem;">
+            "Ένας χώρος ηρεμίας και εχεμύθειας στο κέντρο του Βύρωνα."
+          </div>
+        </div>
+
+        <div class="reveal-up">
+          <h2 style="margin-bottom: 40px; font-size: 2.8rem;">Συχνές Ερωτήσεις</h2>
+          
+          <div style="background: rgba(255,255,255,0.7); padding: 24px; border-radius: 16px; margin-bottom: 20px; backdrop-filter: blur(10px); border: 1px solid rgba(255,255,255,0.5);">
+            <h4 style="color: var(--c-berry); margin-bottom: 10px; font-size: 1.2rem;">Πόσο διαρκεί η συνεδρία;</h4>
+            <p style="margin: 0; font-size: 1rem;">Η ατομική συνεδρία διαρκεί 50 λεπτά, ενώ η συμβουλευτική ζεύγους 60 λεπτά. Υπάρχει και η δυνατότητα για δωρεάν 15λεπτη online γνωριμία.</p>
+          </div>
+
+          <div style="background: rgba(255,255,255,0.7); padding: 24px; border-radius: 16px; margin-bottom: 20px; backdrop-filter: blur(10px); border: 1px solid rgba(255,255,255,0.5);">
+            <h4 style="color: var(--c-berry); margin-bottom: 10px; font-size: 1.2rem;">Ποιες μεθόδους χρησιμοποιείτε;</h4>
+            <p style="margin: 0; font-size: 1rem;">Η κύρια προσέγγιση είναι η Γνωσιακή - Συμπεριφορική (CBT), προσαρμοσμένη στις ανάγκες του κάθε θεραπευόμενου.</p>
+          </div>
+
+          <div style="background: rgba(255,255,255,0.7); padding: 24px; border-radius: 16px; margin-bottom: 40px; backdrop-filter: blur(10px); border: 1px solid rgba(255,255,255,0.5);">
+            <h4 style="color: var(--c-berry); margin-bottom: 10px; font-size: 1.2rem;">Πώς κλείνω ραντεβού;</h4>
+            <p style="margin: 0; font-size: 1rem;">Μπορείτε να καλέσετε στο 693 2766839 ή να κάνετε κράτηση online άμεσα.</p>
+          </div>
+
+          <a href="https://www.doctoranytime.gr/en/d/psychologist-psychotherapist/talamagka-elpida" target="_blank" class="psych-btn magnetic-btn">
+            Κλείστε ραντεβού <span class="arrow">→</span>
+          </a>
+
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <footer style="background: var(--c-charcoal); color: var(--c-peach); padding: 100px 0 50px 0;">
+    <div class="psych-container">
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 60px; margin-bottom: 80px;">
+        
+        <div>
+          <img src="https://assets.cdn.filesafe.space/61icdoMiJ2pHklO6mmKW/media/696fbab17b1aed5f942714d1.jpg" style="width: 90px; height: 90px; object-fit: cover; border-radius: 50%; margin-bottom: 24px; border: 2px solid var(--c-peach);">
+          <h3 style="color: var(--c-peach); margin-bottom: 12px; font-size: 1.5rem;">Ελπίδα Ταλαμάγκα</h3>
+          <p style="color: #999; font-size: 0.95rem;">Ψυχολόγος - Ψυχοθεραπεύτρια<br>MSc Γνωσιακή Συμπεριφορική Θεραπεία</p>
+        </div>
+
+        <div>
+          <h4 style="color: white; margin-bottom: 24px; font-family: 'Playfair Display', serif; font-size: 1.3rem;">Επικοινωνία</h4>
+          <p style="color: #bbb; margin-bottom: 12px; display: flex; align-items: center; gap: 10px;">
+            <span>📞</span> <a href="tel:6932766839" style="color: inherit; text-decoration: none; transition: color 0.3s;">693 2766839</a>
+          </p>
+          
+          <p style="color: #bbb; margin-bottom: 12px; display: flex; align-items: center; gap: 10px;">
+             <span style="display:flex; align-items:center; justify-content:center; width:20px;">
+               <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+             </span> 
+             <a href="https://www.instagram.com/elpida_talamagka/" target="_blank" style="color: inherit; text-decoration: none;">Instagram Profile</a>
+          </p>
+          <p style="color: #bbb;">🕒 Δευτέρα - Παρασκευή<br><span style="font-size: 0.8rem; margin-left: 28px;">(Κατόπιν Ραντεβού)</span></p>
+        </div>
+
+        <div>
+          <h4 style="color: white; margin-bottom: 24px; font-family: 'Playfair Display', serif; font-size: 1.3rem;">Τοποθεσία</h4>
+          <p style="color: #bbb; margin-bottom: 24px;">Βύρωνας, Αττική</p>
+          <a href="https://share.google/sYlABBQI9x3sDSQau" target="_blank" style="display: inline-block; padding: 12px 30px; border: 1px solid var(--c-peach); color: var(--c-peach); border-radius: 50px; text-decoration: none; font-size: 0.95rem; transition: 0.3s;">
+            Άνοιγμα Χάρτη ↗
+          </a>
+        </div>
+      </div>
+
+      <div style="border-top: 1px solid #444; padding-top: 40px; text-align: center; color: #666; font-size: 0.85rem;">
+        &copy; 2026 Elpida Talamagka. All rights reserved.
+      </div>
+    </div>
+  </footer>
+
+</div>
+
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+  
+  // 1. SCROLL REVEAL OBSERVER
+  const observerOptions = {
+    root: null,
+    rootMargin: '0px',
+    threshold: 0.1
+  };
+  const observer = new IntersectionObserver((entries, observer) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('active');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, observerOptions);
+  document.querySelectorAll('.reveal-up').forEach(el => observer.observe(el));
+
+  // 2. MAGNETIC BUTTON PHYSICS
+  const btns = document.querySelectorAll(".magnetic-btn");
+  
+  btns.forEach(btn => {
+    btn.addEventListener("mousemove", function(e) {
+      const rect = btn.getBoundingClientRect();
+      const x = e.clientX - rect.left - rect.width / 2;
+      const y = e.clientY - rect.top - rect.height / 2;
+      
+      const strength = 15; 
+      
+      btn.style.transform = `translate(${x / strength}px, ${y / strength}px) scale(1.05)`;
+    });
+
+    btn.addEventListener("mouseleave", function() {
+      btn.style.transform = "translate(0, 0) scale(1)";
+    });
+  });
+});
+</script>
